@@ -3,23 +3,23 @@ import { IoMoonOutline } from 'react-icons/io5'
 
 export const Nav = ({ changeLightMode }) => {
   return (
-    <nav>
+    <header>
       <div className="container">
-        <div className="navbar">
+        <nav className="navbar">
           <a
             href="#"
             className="nav-link"
           >
             Where in the World?
           </a>
-          <div
+          <button
             onClick={changeLightMode}
             className="dark-mode"
           >
             <IoMoonOutline /> Dark Mode
-          </div>
-        </div>
+          </button>
+        </nav>
       </div>
-    </nav>
+    </header>
   )
 }
