@@ -1,7 +1,7 @@
 import React from 'react'
-import { IoMoonOutline } from 'react-icons/io5'
+import { IoMoonOutline, IoMoonSharp } from 'react-icons/io5'
 
-export const Nav = ({ changeLightMode }) => {
+export const Nav = ({ changeLightMode, isDarkMode }) => {
   return (
     <header>
       <div className="container">
@@ -10,13 +10,13 @@ export const Nav = ({ changeLightMode }) => {
             href="#"
             className="nav-link"
           >
-            Where in the World?
+            Where in the world?
           </a>
           <button
             onClick={changeLightMode}
             className="dark-mode"
           >
-            <IoMoonOutline /> Dark Mode
+            {isDarkMode ? <IoMoonSharp /> : <IoMoonOutline />} Dark Mode
           </button>
         </nav>
       </div>

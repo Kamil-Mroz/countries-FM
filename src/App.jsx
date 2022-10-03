@@ -9,7 +9,10 @@ function App() {
   }
   return (
     <div className={`App ${isDarkMode ? 'dark' : 'light'}`}>
-      <Nav changeLightMode={changeLightMode} />
+      <Nav
+        changeLightMode={changeLightMode}
+        isDarkMode={isDarkMode}
+      />
       <Body />
     </div>
   )
