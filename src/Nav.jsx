@@ -7,7 +7,7 @@ export const Nav = ({ changeLightMode, isDarkMode }) => {
       <div className="container">
         <nav className="navbar">
           <a
-            href="#"
+            href="/"
             className="nav-link"
           >
             Where in the world?

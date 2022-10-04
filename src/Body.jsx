@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { IoSearch } from 'react-icons/io5'
 import axios from 'axios'
 import { CountryCard } from './CountryCard'
+import { NavLink } from 'react-router-dom'
 export const Body = () => {
   const [countries, setCountries] = useState([])
   const [countrySort, setCountrySort] = useState([])
@@ -82,10 +83,13 @@ export const Body = () => {
         </div>
         <div className="countries-container">
           {countrySort?.map((country) => (
-            <CountryCard
+            <NavLink
+              to={`/country-details/${country.cca2}`}
               key={country.name.common}
-              country={country}
-            />
+              style={{ textDecoration: 'none' }}
+            >
+              <CountryCard country={country} />
+            </NavLink>
           ))}
         </div>
       </div>

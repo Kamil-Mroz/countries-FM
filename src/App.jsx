@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Body } from './Body'
 import { Nav } from './Nav'
+import { Routes, Route } from 'react-router-dom'
+import { CountryDetails } from './CountryDetails'
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -13,7 +15,16 @@ function App() {
         changeLightMode={changeLightMode}
         isDarkMode={isDarkMode}
       />
-      <Body />
+      <Routes>
+        <Route
+          path="/"
+          element={<Body />}
+        ></Route>
+        <Route
+          path="/country-details/:countryId"
+          element={<CountryDetails />}
+        />
+      </Routes>
     </div>
   )
 }
