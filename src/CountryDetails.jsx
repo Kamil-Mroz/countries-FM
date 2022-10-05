@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { IoArrowBackOutline } from 'react-icons/io5'
 import axios from 'axios'
-export const CountryDetails = ({ borders }) => {
+import { NavLink } from 'react-router-dom'
+export const CountryDetails = () => {
   const [country, setCountry] = useState([])
+  const [checkBorder, setCheckBorder] = useState(false)
   const [border, setBorder] = useState([])
   const { countryId } = useParams()
   const fetchData = async (id) => {
@@ -14,14 +16,18 @@ export const CountryDetails = ({ borders }) => {
     return data
   }
   useEffect(() => {
-    fetchData(countryId).then((res) => setCountry(res))
-  }, [])
+    fetchData(countryId).then((res) => {
+      setCountry(res)
+
+      setBorder([])
+    })
+  }, [countryId])
 
   useEffect(() => {
     if (!country.borders) return
     country.borders?.forEach((border) => {
       fetchData(border).then((res) =>
-        setBorder((prevState) => [...prevState, res?.name?.common])
+        setBorder((prevState) => [...prevState, res])
       )
     })
   }, [country])
@@ -88,14 +94,17 @@ export const CountryDetails = ({ borders }) => {
             </div>
             <div className="borders">
               <span>borders:</span>
-              {border.map((b) => (
-                <div
-                  className="btn"
-                  key={b}
-                >
-                  {b}
-                </div>
-              ))}
+              <div className="borders-list">
+                {border.map((b) => (
+                  <NavLink
+                    to={`/country-details/${b.cca2}`}
+                    className="border-box"
+                    key={b?.name?.common}
+                  >
+                    {b?.name?.common}
+                  </NavLink>
+                ))}
+              </div>
             </div>
           </div>
         </div>

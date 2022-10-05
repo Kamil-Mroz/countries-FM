@@ -108,7 +108,8 @@ header,
 .input-group,
 .drop-down,
 .card,
-.btn {
+.btn,
+.border-box {
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
@@ -302,12 +303,38 @@ main {
 }
 .borders {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
 }
 .detail-text {
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
 }
 .grid {
   display: grid;
-  grid-template-columns: ;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 4rem;
+}
+
+.detail-text h3 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.detail-text p {
+  display: flex;
+  gap: 1rem;
+}
+.borders-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.border-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: var(--text-color);
+  text-decoration: none;
 }
