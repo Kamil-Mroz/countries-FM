@@ -86,6 +86,9 @@ export const Body = () => {
             <NavLink
               to={`/country-details/${country.cca2}`}
               key={country.name.common}
+              borders={countries.filter((c) =>
+                country.borders?.join(' ').includes(c.cca2)
+              )}
               style={{ textDecoration: 'none' }}
             >
               <CountryCard country={country} />

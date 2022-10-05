@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { IoArrowBackOutline } from 'react-icons/io5'
 import axios from 'axios'
-export const CountryDetails = () => {
+export const CountryDetails = ({ borders }) => {
   const [country, setCountry] = useState([])
-  const [border, setBorder] = useState({})
+  const [border, setBorder] = useState([])
   const { countryId } = useParams()
   const fetchData = async (id) => {
     const res = await axios.get(
@@ -13,15 +13,23 @@ export const CountryDetails = () => {
     const [data] = await res.data
     return data
   }
-
   useEffect(() => {
     fetchData(countryId).then((res) => setCountry(res))
   }, [])
 
+  useEffect(() => {
+    if (!country.borders) return
+    country.borders?.forEach((border) => {
+      fetchData(border).then((res) =>
+        setBorder((prevState) => [...prevState, res?.name?.common])
+      )
+    })
+  }, [country])
   const navigate = useNavigate()
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
+
   return (
     <div className="container">
       <button
@@ -80,16 +88,14 @@ export const CountryDetails = () => {
             </div>
             <div className="borders">
               <span>borders:</span>
-              {country.borders?.map((b) => {
-                return (
-                  <span
-                    className="btn"
-                    key={b}
-                  >
-                    {border?.name?.common}
-                  </span>
-                )
-              })}
+              {border.map((b) => (
+                <div
+                  className="btn"
+                  key={b}
+                >
+                  {b}
+                </div>
+              ))}
             </div>
           </div>
         </div>

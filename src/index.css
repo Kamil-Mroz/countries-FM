@@ -290,6 +290,7 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10rem;
+  align-items: center;
 }
 
 .detail-box img {
@@ -302,4 +303,11 @@ main {
 .borders {
   display: flex;
   gap: 1rem;
+}
+.detail-text {
+  color: var(--text-color);
+}
+.grid {
+  display: grid;
+  grid-template-columns: ;
 }
