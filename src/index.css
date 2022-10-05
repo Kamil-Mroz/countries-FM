@@ -292,6 +292,7 @@ main {
   grid-template-columns: repeat(2, 1fr);
   gap: 10rem;
   align-items: center;
+  font-size: 1.4rem;
 }
 
 .detail-box img {
@@ -314,12 +315,13 @@ main {
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   margin-bottom: 4rem;
 }
 
 .detail-text h3 {
   font-size: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .detail-text p {
   display: flex;
@@ -334,7 +336,34 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   color: var(--text-color);
   text-decoration: none;
+}
+
+@media only screen and (max-width: 75em) {
+  .detail-box {
+    gap: 5rem;
+  }
+  .btn {
+    margin-block: 5rem;
+  }
+}
+@media only screen and (max-width: 50em) {
+  .detail-box {
+    grid-template-columns: 1fr;
+  }
+  .detail-text {
+    margin-bottom: 10rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .detail-text h3 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
 }
