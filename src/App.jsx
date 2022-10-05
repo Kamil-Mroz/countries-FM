@@ -3,6 +3,7 @@ import { Body } from './Body'
 import { Nav } from './Nav'
 import { Routes, Route } from 'react-router-dom'
 import { CountryDetails } from './CountryDetails'
+import { Footer } from './Footer'
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -25,6 +26,7 @@ function App() {
           element={<CountryDetails />}
         />
       </Routes>
+      <Footer />
     </div>
   )
 }

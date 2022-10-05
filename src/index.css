@@ -168,6 +168,7 @@ main {
   background-color: var(--elements);
   color: var(--input-color);
   outline: none;
+  cursor: pointer;
 }
 .input-search::placeholder {
   color: var(--input-color);
@@ -178,6 +179,7 @@ main {
 .icon-search {
   font-size: 2.5rem;
   color: var(--input-color);
+  cursor: pointer;
 }
 .drop-down {
   padding: 1rem 2rem;
@@ -185,6 +187,7 @@ main {
   color: var(--input-color);
   border-radius: 0.5rem;
   width: 20rem;
+  cursor: pointer;
 }
 .drop-down > option {
   padding: 1rem;
@@ -255,6 +258,7 @@ main {
   color: var(--text-color);
   border-radius: 0.5rem;
   overflow: hidden;
+  cursor: pointer;
 }
 .detail {
   display: flex;
@@ -286,6 +290,7 @@ main {
   color: var(--text-color);
   margin-block: 10rem;
   gap: 1rem;
+  cursor: pointer;
 }
 .detail-box {
   display: grid;
@@ -339,6 +344,7 @@ main {
   padding: 0.5rem 1rem;
   color: var(--text-color);
   text-decoration: none;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 75em) {
@@ -366,4 +372,16 @@ main {
     font-size: 2.5rem;
     margin-bottom: 2rem;
   }
+}
+
+.attribution {
+  margin-top: 5rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  color: var(--text-color);
+}
+.footer-link {
+  margin-left: 0.5rem;
+  color: var(--text-color);
+  cursor: pointer;
 }
