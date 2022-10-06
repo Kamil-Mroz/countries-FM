@@ -3,6 +3,7 @@ import { IoSearch } from 'react-icons/io5'
 import axios from 'axios'
 import { CountryCard } from './CountryCard'
 import { NavLink } from 'react-router-dom'
+import { NotFound } from './NotFound'
 export const Body = () => {
   const [countries, setCountries] = useState([])
   const [countrySort, setCountrySort] = useState([])
@@ -81,20 +82,25 @@ export const Body = () => {
             <option value="oceania">Oceania</option>
           </select>
         </div>
-        <div className="countries-container">
-          {countrySort?.map((country) => (
-            <NavLink
-              to={`/country-details/${country.cca2}`}
-              key={country.name.common}
-              borders={countries.filter((c) =>
-                country.borders?.join(' ').includes(c.cca2)
-              )}
-              style={{ textDecoration: 'none' }}
-            >
-              <CountryCard country={country} />
-            </NavLink>
-          ))}
-        </div>
+
+        {countrySort?.length > 0 ? (
+          <div className="countries-container">
+            {countrySort?.map((country) => (
+              <NavLink
+                to={`/country-details/${country.cca2}`}
+                key={country.name.common}
+                borders={countries.filter((c) =>
+                  country.borders?.join(' ').includes(c.cca2)
+                )}
+                style={{ textDecoration: 'none' }}
+              >
+                <CountryCard country={country} />
+              </NavLink>
+            ))}
+          </div>
+        ) : (
+          <NotFound text="Country not found" />
+        )}
       </div>
     </main>
   )
