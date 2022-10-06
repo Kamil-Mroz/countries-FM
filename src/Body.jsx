@@ -4,9 +4,11 @@ import axios from 'axios'
 import { CountryCard } from './CountryCard'
 import { NavLink } from 'react-router-dom'
 import { NotFound } from './NotFound'
+import { ClipLoader } from 'react-spinners'
 export const Body = () => {
   const [countries, setCountries] = useState([])
   const [countrySort, setCountrySort] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   const inputRef = useRef(null)
   const selectRef = useRef(null)
   const URL_ALL_COUNTRIES = 'https://restcountries.com/v3.1/all'
@@ -16,6 +18,7 @@ export const Body = () => {
     const data = await res.data
     action(data)
     setCountrySort(data)
+    setIsLoading(false)
   }
   const handleOnChange = (e) => {
     inputRef.current.value = ''
@@ -82,6 +85,18 @@ export const Body = () => {
             <option value="oceania">Oceania</option>
           </select>
         </div>
+        {isLoading && (
+          <div className="loader-container">
+            <ClipLoader
+              loading={isLoading}
+              color="#2b3945"
+              cssOverride={{
+                width: '5rem',
+                height: '5rem',
+              }}
+            />
+          </div>
+        )}
 
         {countrySort?.length > 0 ? (
           <div className="countries-container">
@@ -99,7 +114,7 @@ export const Body = () => {
             ))}
           </div>
         ) : (
-          <NotFound text="Country not found" />
+          !isLoading && <NotFound text="Country not found" />
         )}
       </div>
     </main>
