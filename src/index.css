@@ -385,3 +385,11 @@ main {
   color: var(--text-color);
   cursor: pointer;
 }
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 15rem;
+  color: var(--text-color);
+  font-size: 3rem;
+}
