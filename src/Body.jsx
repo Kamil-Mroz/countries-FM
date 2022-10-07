@@ -45,7 +45,6 @@ export const Body = ({ isDarkMode }) => {
     }, [])
     setCountrySort(sort)
   }
-  console.log(countrySort)
   useEffect(() => {
     fetchData(URL_ALL_COUNTRIES, setCountries)
   }, [])
