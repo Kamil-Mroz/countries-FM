@@ -5,7 +5,7 @@ import { CountryCard } from './CountryCard'
 import { NavLink } from 'react-router-dom'
 import { NotFound } from './NotFound'
 import { ClipLoader } from 'react-spinners'
-export const Body = () => {
+export const Body = ({ isDarkMode }) => {
   const [countries, setCountries] = useState([])
   const [countrySort, setCountrySort] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -89,7 +89,7 @@ export const Body = () => {
           <div className="loader-container">
             <ClipLoader
               loading={isLoading}
-              color="#2b3945"
+              color={isDarkMode ? '#fff' : '#2b3945'}
               cssOverride={{
                 width: '5rem',
                 height: '5rem',

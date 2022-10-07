@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Body />}
+          element={<Body isDarkMode={isDarkMode} />}
         ></Route>
         <Route
           path="/country-details/:countryId"
@@ -35,6 +35,5 @@ function App() {
     </div>
   )
 }
-// ! page not found
-// ! result not found
+
 export default App
